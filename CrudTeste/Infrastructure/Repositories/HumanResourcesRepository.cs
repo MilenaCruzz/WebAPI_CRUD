@@ -30,8 +30,7 @@ namespace CrudTeste.Infrastructure.Repositories
                                 ON [Department].[DepartmentID] = [DepartmentH].[DepartmentID]
                                 INNER JOIN [HumanResources].[EmployeePayHistory] 
                                 ON [Employee].[BusinessEntityID] = [EmployeePayHistory].[BusinessEntityID]
-                                WHERE [Employee].[BusinessEntityID] = {id}
-                                ORDER BY [Employee].[BusinessEntityID] ASC;";
+                                WHERE [Employee].[BusinessEntityID] = {id}";
 
                  var res =   await connection.QueryFirstOrDefaultAsync<EmployeeVO>(query);
                 return res;
