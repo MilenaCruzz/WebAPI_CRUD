@@ -1,7 +1,7 @@
 ﻿using CrudTeste.Domain.Entities;
 using CrudTeste.Domain.Model;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
-using CrudTeste.Service.DTOs;
+using CrudTeste.Service.DTOs.User;
 using CrudTeste.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
@@ -28,7 +28,7 @@ namespace CrudTeste.Controllers
         [HttpGet]
         [Route("{idUser}")]
 
-        public async Task<Service.DTOs.UserDTO> GetUserId(int idUser)
+        public async Task<UserDTO> GetUserId(int idUser)
         {
             return await _userService.GetUserById(idUser);
         }
@@ -64,6 +64,8 @@ namespace CrudTeste.Controllers
         {
            await _userService.DeleteUser(idUser);
         }
+
+       
 
     } 
 }

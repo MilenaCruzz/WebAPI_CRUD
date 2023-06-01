@@ -1,5 +1,9 @@
-﻿namespace CrudTeste.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CrudTeste.Domain.Entities
 {
+
+    [Table("Users")]
     public class User
     {
         public int Id { get; set; }

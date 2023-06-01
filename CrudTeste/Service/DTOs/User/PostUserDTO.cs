@@ -1,4 +1,4 @@
-﻿namespace CrudTeste.Service.DTOs
+﻿namespace CrudTeste.Service.DTOs.User
 {
     public class PostUserDTO
     {

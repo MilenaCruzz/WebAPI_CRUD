@@ -4,7 +4,7 @@ using CrudTeste.Domain.Model;
 using CrudTeste.Domain.VOs;
 using CrudTeste.Infrastructure.Repositories;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
-using CrudTeste.Service.DTOs;
+using CrudTeste.Service.DTOs.User;
 using CrudTeste.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -44,7 +44,7 @@ namespace CrudTeste.Service
 
             if (userData != null)
             {
-                 userDTO = new DTOs.UserDTO
+                 userDTO = new UserDTO
                 {
                     FirstName = userData.FirstName,
                     MiddleName = userData.MiddleName,
@@ -59,7 +59,7 @@ namespace CrudTeste.Service
         public void PostNewUser([FromBody] PostUserModel model)
         {
            
-            var newUser = new Domain.Entities.User
+            var newUser = new User
             {
                 FirstName = model.FirstName,
                 MiddleName = model.MiddleName,

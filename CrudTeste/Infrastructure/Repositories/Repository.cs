@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Data.Common;
-
+using System.Reflection;
 
 namespace CrudTeste.Infrastructure.Repositories
 {
@@ -24,22 +24,25 @@ namespace CrudTeste.Infrastructure.Repositories
 
         public virtual async Task<TEntity> GetById(int id)
         {
+            
             return await  _dbConnection.QueryFirstOrDefaultAsync<TEntity>($"SELECT * FROM Users WHERE Id = {id}");
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
-            return await _dbConnection.QueryAsync<TEntity>("SELECT * FROM Users");
+            
+            return await _dbConnection.QueryAsync<TEntity>($"SELECT * FROM Users");
         }
 
         public void Add(TEntity entity)
         {
+     
             _dbConnection.Execute($"INSERT INTO Users (FirstName, MiddleName, LastName, EmailAddress) VALUES (@FirstName, @MiddleName, @LastName, @EmailAddress)", entity);
         }
 
         public void Update(TEntity entity, int id)
-        {
-            _dbConnection.Execute($"UPDATE Users SET FirstName = @FirstName, MiddleName = @MiddleName, LastName = @LastName, EmailAddress = @EmailAddress WHERE Id = {id}", entity);
+        {       
+            _dbConnection.Execute($"UPDATE Users SET @FirstName, @MiddleName, @LastName, @EmailAddress WHERE Id = {id}", entity);
         }
 
         public void Delete(int id)

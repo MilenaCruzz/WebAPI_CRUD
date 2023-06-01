@@ -1,8 +1,7 @@
-﻿namespace CrudTeste.Domain.VOs
+﻿namespace CrudTeste.Service.DTOs.User
 {
-    public class UpdateUserVO
+    public class UpdateUserDTO
     {
-        public  int BusinessEntityID { get; set; }
         public string? MiddleName { get; set; }
 
         public string? EmailAddress { get; set; }

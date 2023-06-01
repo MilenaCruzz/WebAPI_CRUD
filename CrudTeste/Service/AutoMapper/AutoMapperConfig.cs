@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using CrudTeste.Domain.Entities;
-using CrudTeste.Service.DTOs;
+using CrudTeste.Domain.VOs;
+using CrudTeste.Service.DTOs.Employee;
+using CrudTeste.Service.DTOs.User;
 
 namespace CrudTeste.Service.AutoMapper
 {
@@ -11,6 +13,8 @@ namespace CrudTeste.Service.AutoMapper
         {
             CreateMap<UserDTO, User>();
             CreateMap<User, UserDTO>();
+            CreateMap<EmployeeVO, EmployeeDTO>();
+            CreateMap<EmployeeDTO, EmployeeVO>();
             
         }
 

@@ -3,7 +3,7 @@ using CrudTeste.Domain.Model;
 using CrudTeste.Domain.VOs;
 using CrudTeste.Infrastructure.Repositories;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
-using CrudTeste.Service.DTOs;
+using CrudTeste.Service.DTOs.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudTeste.Service.Interfaces
