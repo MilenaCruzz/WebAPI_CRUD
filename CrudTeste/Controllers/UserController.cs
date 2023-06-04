@@ -1,5 +1,5 @@
 ﻿using CrudTeste.Domain.Entities;
-using CrudTeste.Domain.Model;
+using CrudTeste.Domain.Model.User;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
 using CrudTeste.Service.DTOs.User;
 using CrudTeste.Service.Interfaces;

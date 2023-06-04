@@ -19,7 +19,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSingleton<Profile, AutoMapperConfig>();
 
-string connectionString = "Data Source= DESKTOP-1RTHCRB\\SQLEXPRESS;Initial Catalog=AdventureWorks2017;Integrated Security=SSPI;Persist Security Info=False;";
+string connectionString = "Data Source= localhost\\SQLEXPRESS;Initial Catalog=AdventureWorks2017;Integrated Security=SSPI;Persist Security Info=False;";
 builder.Services.AddScoped<IDbConnection>(provider => new SqlConnection(connectionString));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IHumanResourcesService, HumanResourcesService>();

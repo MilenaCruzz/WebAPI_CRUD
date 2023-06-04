@@ -1,4 +1,4 @@
-﻿namespace CrudTeste.Domain.Model
+﻿namespace CrudTeste.Domain.Model.User
 {
     public class PatchEmailUserModel
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CrudTeste.Domain.Entities;
-using CrudTeste.Domain.Model;
+using CrudTeste.Domain.Model.User;
 using CrudTeste.Domain.VOs;
 using CrudTeste.Infrastructure.Repositories;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
@@ -17,14 +17,11 @@ namespace CrudTeste.Service
     public class UserService : IUserService
     {
          private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
-
-
+         private readonly IMapper _mapper;
          public UserService(IUserRepository userRepository, IMapper mapper)
          {
              _userRepository = userRepository;
              _mapper = mapper;
-
          }
 
          public async Task<IEnumerable<UserDTO>> GetAllUsers()
@@ -68,7 +65,6 @@ namespace CrudTeste.Service
             };
               _userRepository.Add(newUser);    
         }
-
         public async Task UpdateUser([FromBody] UpdateUserModel model, int idUser)
         {
             Domain.Entities.User userData = await _userRepository.GetById(idUser);
@@ -83,7 +79,6 @@ namespace CrudTeste.Service
 
             _userRepository.Update(userData, idUser);
         }
-
         public async Task DeleteUser(int idUser)
         {
             Domain.Entities.User userData = await _userRepository.GetById(idUser);
@@ -91,11 +86,8 @@ namespace CrudTeste.Service
             if( userData != null )
             {
                  _userRepository.Delete(idUser);
-            }
-         
+            }     
         }
-
-
     }
 
 }

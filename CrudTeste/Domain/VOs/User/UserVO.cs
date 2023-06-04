@@ -1,4 +1,4 @@
-﻿namespace CrudTeste.Domain.VOs
+﻿namespace CrudTeste.Domain.VOs.User
 {
     public class UserVO
     {
