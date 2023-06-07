@@ -18,6 +18,13 @@ namespace CrudTeste.Service.AutoMapper
             CreateMap<EmployeeDTO, EmployeeVO>();
             CreateMap<EmployeeContactVO, EmployeeContactDTO>();
             CreateMap<EmployeeContactDTO, EmployeeContactVO>();
+            CreateMap<EmployeeCompanyTimeVO, EmployeeCompanyTimeDTO>();
+            CreateMap<EmployeeCompanyTimeDTO, EmployeeCompanyTimeVO>();
+            CreateMap<AverageEmployeePaymentVO, AverageEmployeePaymentDTO>();
+            CreateMap<AverageEmployeePaymentDTO, AverageEmployeePaymentVO>();
+            CreateMap<DepartmentsCostHistoryVO, DepartmentsCostHistoryDTO>();
+            CreateMap<DepartmentsCostHistoryDTO, DepartmentsCostHistoryVO>();
+
         }
 
 

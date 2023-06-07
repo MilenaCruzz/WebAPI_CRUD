@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CrudTeste.Domain.Entities;
 using CrudTeste.Domain.VOs.Employee;
+using CrudTeste.Domain.VOs.HumanResources;
 using CrudTeste.Infrastructure.Repositories.Interfaces;
 using CrudTeste.Service.DTOs.Employee;
 using CrudTeste.Service.Interfaces;
@@ -65,7 +66,43 @@ namespace CrudTeste.Service
                 };
             }
             return employeeContact;       
-        }     
+        }
 
+        public async Task<EmployeeCompanyTimeDTO> GetEmployeeCompanyTimeById(int id)
+        {
+            var employee = await _humanResourcesRepository.GetEmployeeCompanyTimeById(id);
+            var employeeData = _mapper.Map<EmployeeCompanyTimeDTO>(employee);
+
+            if (employee != null)
+            {
+                employeeData = new EmployeeCompanyTimeDTO
+                {
+                    FirstName = employee.FirstName,
+                    LastName = employee.LastName,
+                    BirthDate = employee.BirthDate,
+                    HireDate = employee.HireDate,
+                    DepartmentID = employee.DepartmentID,
+                    ServiceYears = employee.ServiceYears,
+                    EmployeeAge = employee.EmployeeAge
+                };
+            }
+
+            return employeeData;
+        }
+
+        public async Task<IEnumerable<AverageEmployeePaymentDTO>> GetDepartmentsPayment()
+        {
+            var departments = await _humanResourcesRepository.AverageDepartmentsPayment();
+            var departmentsData = _mapper.Map<IEnumerable<AverageEmployeePaymentVO>, IEnumerable<AverageEmployeePaymentDTO>>(departments);
+
+            return departmentsData;
+        }
+
+        public async Task<IEnumerable<DepartmentsCostHistoryDTO>> GetDepartmentsCostHistoryById(int departmentId)
+        {
+            var department = await _humanResourcesRepository.DepartmentCostById(departmentId);
+            var departmentCost = _mapper.Map<IEnumerable<DepartmentsCostHistoryVO>, IEnumerable<DepartmentsCostHistoryDTO>>(department);
+            return departmentCost;
+        }
     }
 }
